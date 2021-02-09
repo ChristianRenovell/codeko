@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { getSentence } from '../../api/getSentence'
 
-const API = process.env.REACT_APP_API;
+const API = process.env.REACT_APP_API_URL;
 
 class Main extends Component {
 
@@ -11,8 +12,8 @@ class Main extends Component {
         };
     }
 
-    getSentence(categorie) {
-        
+    callSentence(categorie) {
+        getSentence(API,categorie).then((res)=>console.log(res))
     }
 
     render() {
@@ -23,22 +24,22 @@ class Main extends Component {
                         <div className="col-3 mt-5 mb-5">
                             <h3>Categories</h3>
                             <ul className="list-group">
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"animal")}>Animal</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"career")}>Career</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"celebrity")}>Celebrity</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"dev")}>Dev</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"explicit")}>Explicit</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"fashion")}>Fashion</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"food")}>Food</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"history")}>History</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"money")}>Money</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"movie")}>Movie</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"music")}>Music</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"political")}>Political</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"religion")}>Religion</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"science")}>Science</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"sport")}>Sport</li>
-                                <li className="list-group-item" onClick={this.getSentence.bind(this,"travel")}>Travel</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"animal")}>Animal</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"career")}>Career</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"celebrity")}>Celebrity</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"dev")}>Dev</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"explicit")}>Explicit</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"fashion")}>Fashion</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"food")}>Food</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"history")}>History</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"money")}>Money</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"movie")}>Movie</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"music")}>Music</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"political")}>Political</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"religion")}>Religion</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"science")}>Science</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"sport")}>Sport</li>
+                                <li className="list-group-item" onClick={this.callSentence.bind(this,"travel")}>Travel</li>
                             </ul>
                         </div>
                         <div className="col-3">
