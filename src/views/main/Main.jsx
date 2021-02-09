@@ -21,17 +21,21 @@ class Main extends Component {
         *description: Realiza la llamada a la api y devuelve un objeto.
         *param: {API} Url de la Api.
         *param: {categorie} CategorÍa de la que se solicita una frase.
-        *var: {sentencesArry} Almacenamos las posibles frases ya almacenadas en el estado.
+        *var: {sentencesArray} Almacenamos las posibles frases ya almacenadas en el estado.
         *var: {result} Parseamos el resultado de la llamada a Json.
         */
         getSentence(API, categorie).then((res) => {
-            let sentencesArry = this.state.sentences
+            let sentencesArray = this.state.sentences
             let result = JSON.parse(res)
-            sentencesArry.push(result.value)
-
-            this.setState({ sentences: sentencesArry })
+            sentencesArray.push(result.value)
+            //almacenamos la lista de frases en localStorage
+            localStorage.setItem('sentencesArray', JSON.stringify(sentencesArray));
+            //actualizamos el estado
+            this.setState({ sentences: sentencesArray })
         })
     }
+
+  
 
     render() {
         return (
