@@ -8,12 +8,17 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sentence: []
+            sentences: []
         };
     }
 
     callSentence(categorie) {
-        getSentence(API,categorie).then((res)=>console.log(res))
+        getSentence(API,categorie).then((res)=>{
+            let sentencesArry = this.state.sentences
+            let result = JSON.parse(res)
+            sentencesArry.push(result.value)
+            this.setState({sentences: sentencesArry})
+        })
     }
 
     render() {
@@ -48,7 +53,7 @@ class Main extends Component {
                         <div className="col-6">
                             <ul className="list-group">
                                 {
-                                    this.state.sentence.map(sentence => {
+                                    this.state.sentences.map(sentence => {
                                         return (
                                             <li className="list-group-item">{sentence}</li>
                                         )
