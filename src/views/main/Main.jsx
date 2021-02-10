@@ -11,19 +11,17 @@ class Main extends Component {
         super(props);
         this.state = {
             sentences: []
-        };
-        //Sonido de disparo al seleccionar categoria.
-        this.audio = new Audio('https://christianrenovell.com/assets/disparo.mp3')
-        //Sonido de recarga al eliminar frase.
-        this.audio2 = new Audio('https://christianrenovell.com/assets/recarga.mp3')
+        };    
     }
     /*
     * description: Realiza la llamada a la Api y se almacena en el estado del componente.
     * param: {categorie} Categoría de la que se solicita una frase.
     */
     callSentence(categorie) {
-        //Sonido de disparo.
-        this.audio.play()
+        
+         //Sonido de disparo al seleccionar categoria.
+        let audio = new Audio('https://christianrenovell.com/assets/disparo.mp3')
+        audio.play()
         /*
         *description: Realiza la llamada a la api y devuelve un objeto.
         *param: {API} Url de la Api.
@@ -32,15 +30,20 @@ class Main extends Component {
         *var: {result} Parseamos el resultado de la llamada a Json.
         */
         getSentence(API, categorie).then((res) => {
+
             let sentencesArray = this.state.sentences
             let result = JSON.parse(res)
             sentencesArray.push(result.value)
+
             //Almacenamos la lista de frases en localStorage
-            localStorage.setItem('sentencesArray', JSON.stringify(sentencesArray));
+            localStorage.setItem('sentencesArray', JSON.stringify(sentencesArray))
+
             //Actualizamos el estado
             this.setState({ sentences: sentencesArray })
+            
+            //Muestra el sello de aprobado.
+            this.showAprobateIcon()
         })
-       
     }
 
     /*
@@ -49,18 +52,18 @@ class Main extends Component {
     *var: {sentencesArray} Almacenamos las posibles frases ya almacenadas en el estado.
     */
     deleteSentence(index) {
-
+       
         //Sonido de recarga al eliminar frase.
-        this.audio2.play()
-
+        let audio2 = new Audio('https://christianrenovell.com/assets/recarga.mp3')
+        audio2.play()
         //Limpiamos el localStorage
-        localStorage.removeItem('sentencesArray');
+        localStorage.removeItem('sentencesArray')
         let sentencesArray = this.state.sentences
-        sentencesArray.splice(index, 1);
+        sentencesArray.splice(index, 1)
         //Almacenamos la lista de frases en localStorage
-        localStorage.setItem('sentencesArray', JSON.stringify(sentencesArray));
+        localStorage.setItem('sentencesArray', JSON.stringify(sentencesArray))
         //Actualizamos el estado
-        this.setState({ sentences: sentencesArray });
+        this.setState({ sentences: sentencesArray })
     }
 
     /*
@@ -68,13 +71,27 @@ class Main extends Component {
     *var: {localSentences} Frases alacenadas en local.
     */
     componentDidMount() {
-        let localSentences = localStorage.getItem('sentencesArray');
+        let localSentences = localStorage.getItem('sentencesArray')
         if (localSentences) {
             localSentences = JSON.parse(localSentences);
             this.setState({ sentences: localSentences })
         }
     }
 
+    /*
+     *description: Muestra el sello de aprobado y reproduce el sonido.
+     *var: audio3: Sonido del sello
+     */
+    showAprobateIcon() {    
+         document.getElementById("aprobadIcon").style.display= "block"
+         setTimeout(function() { 
+             document.getElementById("aprobadIcon").style.display= "none" 
+            }, 2000);
+            setTimeout(function() { 
+            let audio3 = new Audio('https://christianrenovell.com/assets/sello.mp3')
+            audio3.play()
+        }, 700);
+    }
 
     render() {
         return (
