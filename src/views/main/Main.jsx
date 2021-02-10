@@ -35,7 +35,14 @@ class Main extends Component {
         })
     }
 
-  
+    componentDidMount() {
+        let localSentences = localStorage.getItem('sentencesArray');
+        if (localSentences) {
+            localSentences = JSON.parse(localSentences);
+            this.setState({ sentences: localSentences })
+        }
+       
+    }
 
     render() {
         return (
