@@ -73,12 +73,15 @@ class Main extends Component {
             localSentences = JSON.parse(localSentences);
             this.setState({ sentences: localSentences })
         }
-
     }
+
 
     render() {
         return (
             <div>
+                <div id="aprobadIcon" className="aprobed">
+                    <img src="https://christianrenovell.com/assets/aprobed.png"/>
+                </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-2 mt-5">
