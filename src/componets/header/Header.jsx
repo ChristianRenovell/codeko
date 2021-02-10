@@ -12,10 +12,10 @@ function Header() {
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Christian Renovell</a>
+                                <a className="nav-link" target="_blank" aria-current="page" href="https://christianrenovell.com">Christian Renovell</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Codeko</a>
+                                <a className="nav-link active" target="_blank" href="https://codeko.com/">Codeko</a>
                             </li>
                         </ul>
                         <span class="navbar-text">

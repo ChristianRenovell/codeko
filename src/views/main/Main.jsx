@@ -22,12 +22,13 @@ class Main extends Component {
          //Sonido de disparo al seleccionar categoria.
         let audio = new Audio('https://christianrenovell.com/assets/disparo.mp3')
         audio.play()
+
         /*
         *description: Realiza la llamada a la api y devuelve un objeto.
         *param: {API} Url de la Api.
         *param: {categorie} CategorÍa de la que se solicita una frase.
         *var: {sentencesArray} Almacenamos las posibles frases ya almacenadas en el estado.
-        *var: {result} Parseamos el resultado de la llamada a Json.
+        *var: {result} Parseamos el resultado de la llamada.
         */
         getSentence(API, categorie).then((res) => {
 
@@ -56,12 +57,16 @@ class Main extends Component {
         //Sonido de recarga al eliminar frase.
         let audio2 = new Audio('https://christianrenovell.com/assets/recarga.mp3')
         audio2.play()
+
         //Limpiamos el localStorage
         localStorage.removeItem('sentencesArray')
+
         let sentencesArray = this.state.sentences
         sentencesArray.splice(index, 1)
+
         //Almacenamos la lista de frases en localStorage
         localStorage.setItem('sentencesArray', JSON.stringify(sentencesArray))
+
         //Actualizamos el estado
         this.setState({ sentences: sentencesArray })
     }
@@ -84,24 +89,26 @@ class Main extends Component {
      */
     showAprobateIcon() {    
          document.getElementById("aprobadIcon").style.display= "block"
+
          setTimeout(function() { 
              document.getElementById("aprobadIcon").style.display= "none" 
             }, 2000);
+
             setTimeout(function() { 
             let audio3 = new Audio('https://christianrenovell.com/assets/sello.mp3')
             audio3.play()
-        }, 700);
+        }, 660);
     }
 
     render() {
         return (
-            <div>
+            <div className="mainContent">
                 <div id="aprobadIcon" className="aprobed">
                     <img src="https://christianrenovell.com/assets/aprobed.png"/>
                 </div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-3 mt-5">
+                        <div className="col-4 col-sm-3 col-md-3 col-lg-3 mt-5">
                             <h3>Categories</h3>
                             <ul className="list-group categories">
                                 <li className="list-group-item" onClick={this.callSentence.bind(this, "animal")}>Animal</li>
@@ -122,7 +129,7 @@ class Main extends Component {
                                 <li className="list-group-item" onClick={this.callSentence.bind(this, "travel")}>Travel</li>
                             </ul>
                         </div>
-                        <div className="col-9 mt-5">
+                        <div className="col-8 col-sm-9 col-md-9 col-lg-9 mt-5">
                         <h3>Amazing Sentences</h3>
                             <ul className="list-group">
                                 {

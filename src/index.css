@@ -3,17 +3,22 @@ body {
   margin: 0;
   height: 100vh;
   font-family: 'Bangers', cursive;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-image: url('./assets/img/back.png');
   background-repeat: no-repeat;
   background-position: bottom;
+  background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 
+@media (max-height: 1000px) {
+  body{
+    overflow-y: scroll;
+  }
 }
 
 code {

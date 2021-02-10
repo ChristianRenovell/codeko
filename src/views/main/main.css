@@ -1,3 +1,6 @@
+.mainContent {
+    min-height: 85vh;
+}
 .aprobed {
     position: absolute;
     top: 0;
@@ -6,11 +9,12 @@
     bottom: 0;
     margin: auto;
     margin-top: 200px;
-    z-index:1000;
+    z-index: 1000;
     animation-name: fade;
     animation-duration: 0.6s;
-    display:none;
+    display: none;
 }
+
 .btn-delete {
     margin-left: 15px;
     cursor: pointer;
@@ -19,7 +23,7 @@
 .categories {
     cursor: url(https://christianrenovell.com/assets/miraTele.png), default;
 }
-/*Animación de sello*/
+
 @keyframes fade {
     from {
         transform: scale(9);  
