@@ -101,7 +101,7 @@ class Main extends Component {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-2 mt-5">
+                        <div className="col-3 mt-5">
                             <h3>Categories</h3>
                             <ul className="list-group categories">
                                 <li className="list-group-item" onClick={this.callSentence.bind(this, "animal")}>Animal</li>
@@ -122,10 +122,7 @@ class Main extends Component {
                                 <li className="list-group-item" onClick={this.callSentence.bind(this, "travel")}>Travel</li>
                             </ul>
                         </div>
-                        <div className="col-3">
-
-                        </div>
-                        <div className="col-7 mt-5">
+                        <div className="col-9 mt-5">
                         <h3>Amazing Sentences</h3>
                             <ul className="list-group">
                                 {

@@ -5,7 +5,7 @@ function Header() {
         <div className="navBar">
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Logo</a>
+                    <a className="navbar-brand" href="#"><img width="80px" src="https://christianrenovell.com/assets/logoChuck.png" /></a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
