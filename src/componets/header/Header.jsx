@@ -1,6 +1,8 @@
+import './header.css'
+
 function Header() {
     return (
-        <div>
+        <div className="navBar">
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">Logo</a>

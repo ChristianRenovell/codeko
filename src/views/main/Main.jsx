@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { getSentence } from '../../api/getSentence'
 
+import './main.css'
+
 const API = process.env.REACT_APP_API_URL;
 
 class Main extends Component {
@@ -69,7 +71,7 @@ class Main extends Component {
             <div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-3 mt-5 mb-5">
+                        <div className="col-2 mt-5 mb-5">
                             <h3>Categories</h3>
                             <ul className="list-group">
                                 <li className="list-group-item" onClick={this.callSentence.bind(this, "animal")}>Animal</li>
@@ -93,15 +95,16 @@ class Main extends Component {
                         <div className="col-3">
 
                         </div>
-                        <div className="col-6">
+                        <div className="col-7 mt-5 mb-5">
+                        <h3>Amazing Sentences</h3>
                             <ul className="list-group">
                                 {
                                     this.state.sentences.map((sentence, index) => {
-                                        return (
+                                        return (                                          
                                             <li className="list-group-item">
                                                 {sentence}
-                                                <span onClick={this.deleteSentence.bind(this, index)}>X</span>
-                                            </li>
+                                                <span className="d-inline mr-5" onClick={this.deleteSentence.bind(this, index)}></span><img className="d-inline btn-delete" width="25px" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMnB0IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0yNTYgMGMtMTQxLjE2NDA2MiAwLTI1NiAxMTQuODM1OTM4LTI1NiAyNTZzMTE0LjgzNTkzOCAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNTkzOCAyNTYtMjU2LTExNC44MzU5MzgtMjU2LTI1Ni0yNTZ6bTAgMCIgZmlsbD0iI2Y0NDMzNiIvPjxwYXRoIGQ9Im0zNTAuMjczNDM4IDMyMC4xMDU0NjljOC4zMzk4NDMgOC4zNDM3NSA4LjMzOTg0MyAyMS44MjQyMTkgMCAzMC4xNjc5NjktNC4xNjAxNTcgNC4xNjAxNTYtOS42MjEwOTQgNi4yNS0xNS4wODU5MzggNi4yNS01LjQ2MDkzOCAwLTEwLjkyMTg3NS0yLjA4OTg0NC0xNS4wODIwMzEtNi4yNWwtNjQuMTA1NDY5LTY0LjEwOTM3Ni02NC4xMDU0NjkgNjQuMTA5Mzc2Yy00LjE2MDE1NiA0LjE2MDE1Ni05LjYyMTA5MyA2LjI1LTE1LjA4MjAzMSA2LjI1LTUuNDY0ODQ0IDAtMTAuOTI1NzgxLTIuMDg5ODQ0LTE1LjA4NTkzOC02LjI1LTguMzM5ODQzLTguMzQzNzUtOC4zMzk4NDMtMjEuODI0MjE5IDAtMzAuMTY3OTY5bDY0LjEwOTM3Ni02NC4xMDU0NjktNjQuMTA5Mzc2LTY0LjEwNTQ2OWMtOC4zMzk4NDMtOC4zNDM3NS04LjMzOTg0My0yMS44MjQyMTkgMC0zMC4xNjc5NjkgOC4zNDM3NS04LjMzOTg0MyAyMS44MjQyMTktOC4zMzk4NDMgMzAuMTY3OTY5IDBsNjQuMTA1NDY5IDY0LjEwOTM3NiA2NC4xMDU0NjktNjQuMTA5Mzc2YzguMzQzNzUtOC4zMzk4NDMgMjEuODI0MjE5LTguMzM5ODQzIDMwLjE2Nzk2OSAwIDguMzM5ODQzIDguMzQzNzUgOC4zMzk4NDMgMjEuODI0MjE5IDAgMzAuMTY3OTY5bC02NC4xMDkzNzYgNjQuMTA1NDY5em0wIDAiIGZpbGw9IiNmYWZhZmEiLz48L3N2Zz4=" />
+                                            </li>                                          
                                         )
                                     })
                                 }
