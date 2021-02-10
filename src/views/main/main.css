@@ -2,3 +2,7 @@
     margin-left: 15px;
     cursor: pointer;
 }
+
+.categories {
+    cursor: url(https://christianrenovell.com/assets/miraTele.png), default;
+}
