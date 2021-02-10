@@ -12,13 +12,16 @@ class Main extends Component {
         this.state = {
             sentences: []
         };
+        //Sonido de disparo al seleccionar categoria.
+        this.audio = new Audio('https://christianrenovell.com/assets/disparo.mp3')
     }
-
     /*
     * description: Realiza la llamada a la Api y se almacena en el estado del componente.
     * param: {categorie} Categoría de la que se solicita una frase.
     */
     callSentence(categorie) {
+        //Sonido de disparo.
+        this.audio.play()
         /*
         *description: Realiza la llamada a la api y devuelve un objeto.
         *param: {API} Url de la Api.
@@ -35,6 +38,7 @@ class Main extends Component {
             //Actualizamos el estado
             this.setState({ sentences: sentencesArray })
         })
+       
     }
 
     /*
@@ -111,7 +115,6 @@ class Main extends Component {
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
         )
