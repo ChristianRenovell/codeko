@@ -14,6 +14,8 @@ class Main extends Component {
         };
         //Sonido de disparo al seleccionar categoria.
         this.audio = new Audio('https://christianrenovell.com/assets/disparo.mp3')
+        //Sonido de recarga al eliminar frase.
+        this.audio2 = new Audio('https://christianrenovell.com/assets/recarga.mp3')
     }
     /*
     * description: Realiza la llamada a la Api y se almacena en el estado del componente.
@@ -47,6 +49,10 @@ class Main extends Component {
     *var: {sentencesArray} Almacenamos las posibles frases ya almacenadas en el estado.
     */
     deleteSentence(index) {
+
+        //Sonido de recarga al eliminar frase.
+        this.audio2.play()
+
         //Limpiamos el localStorage
         localStorage.removeItem('sentencesArray');
         let sentencesArray = this.state.sentences
