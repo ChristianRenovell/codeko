@@ -28,20 +28,40 @@ class Main extends Component {
             let sentencesArray = this.state.sentences
             let result = JSON.parse(res)
             sentencesArray.push(result.value)
-            //almacenamos la lista de frases en localStorage
+            //Almacenamos la lista de frases en localStorage
             localStorage.setItem('sentencesArray', JSON.stringify(sentencesArray));
-            //actualizamos el estado
+            //Actualizamos el estado
             this.setState({ sentences: sentencesArray })
         })
     }
 
+    /*
+    *description: Elimina una frase de la lista.
+    *params {index} Índice de la frase a eliminar de la lista.
+    *var: {sentencesArray} Almacenamos las posibles frases ya almacenadas en el estado.
+    */
+    deleteSentence(index) {
+        //Limpiamos el localStorage
+        localStorage.removeItem('sentencesArray');
+        let sentencesArray = this.state.sentences
+        sentencesArray.splice(index, 1);
+        //Almacenamos la lista de frases en localStorage
+        localStorage.setItem('sentencesArray', JSON.stringify(sentencesArray));
+        //Actualizamos el estado
+        this.setState({ sentences: sentencesArray });
+    }
+
+    /*
+    *description: Carga las posibles frases almacenadas en local.
+    *var: {localSentences} Frases alacenadas en local.
+    */
     componentDidMount() {
         let localSentences = localStorage.getItem('sentencesArray');
         if (localSentences) {
             localSentences = JSON.parse(localSentences);
             this.setState({ sentences: localSentences })
         }
-       
+
     }
 
     render() {
@@ -76,9 +96,12 @@ class Main extends Component {
                         <div className="col-6">
                             <ul className="list-group">
                                 {
-                                    this.state.sentences.map(sentence => {
+                                    this.state.sentences.map((sentence, index) => {
                                         return (
-                                            <li className="list-group-item">{sentence}</li>
+                                            <li className="list-group-item">
+                                                {sentence}
+                                                <span onClick={this.deleteSentence.bind(this, index)}>X</span>
+                                            </li>
                                         )
                                     })
                                 }
